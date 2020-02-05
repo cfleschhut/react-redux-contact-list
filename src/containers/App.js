@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import List from '../components/List';
 import './App.css';
 
-function App() {
+const App = ({ contacts }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <List contacts={contacts}></List>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => ({
+  contacts: state.contacts
+});
+
+export default connect(mapStateToProps)(App);
