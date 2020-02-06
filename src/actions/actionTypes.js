@@ -1,0 +1,1 @@
+export const FAVORITE_CONTACT = 'FAVORITE_CONTACT';

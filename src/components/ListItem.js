@@ -38,13 +38,18 @@ const Avatar = styled.img`
 `;
 
 const Details = styled.div`
-  padding: 10px;
+  padding: 20px 10px 0;
   color: #111;
 `;
 
 const Name = styled.h3`
   margin: 0 0 3px;
   font-size: 21px;
+`;
+
+const Star = styled.span`
+  margin-left: 2px;
+  color: ${props => (props.favorited ? 'hsl(45, 90%, 50%)' : '#eee')};
 `;
 
 const Email = styled.p`
@@ -54,14 +59,14 @@ const Email = styled.p`
 `;
 
 const Actions = styled.div`
-  margin-top: 20px;
+  margin-top: 25px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 `;
 
-const ListItem = ({ contact }) => {
-  const { first_name, last_name, avatar, email } = contact;
+const ListItem = ({ contact, favoriteContact }) => {
+  const { id, first_name, last_name, avatar, email, favorited } = contact;
 
   return (
     <StyledListItem>
@@ -71,12 +76,17 @@ const ListItem = ({ contact }) => {
           <DetailsWrapper>
             <Avatar src={avatar} />
             <Details>
-              <Name>{`${first_name} ${last_name}`}</Name>
+              <Name>
+                {`${first_name} ${last_name}`}{' '}
+                <Star favorited={favorited}>★</Star>
+              </Name>
               <Email>{email}</Email>
             </Details>
           </DetailsWrapper>
           <Actions>
-            <Button primary>Favorite</Button>
+            <Button primary onClick={() => favoriteContact(id)}>
+              Favorite
+            </Button>
             <Button>Delete</Button>
           </Actions>
         </CardContent>

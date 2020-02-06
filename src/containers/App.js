@@ -1,16 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { favoriteContact } from '../actions/contacts';
 import List from '../components/List';
 
 const Wrapper = styled.div`
   padding: 20px;
 `;
 
-const App = ({ contacts }) => {
+const App = ({ contacts, favoriteContact }) => {
   return (
     <Wrapper>
-      <List contacts={contacts}></List>
+      <List contacts={contacts} favoriteContact={favoriteContact}></List>
     </Wrapper>
   );
 };
@@ -19,4 +20,8 @@ const mapStateToProps = state => ({
   contacts: state.contacts
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  favoriteContact
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

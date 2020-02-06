@@ -11,10 +11,14 @@ const StyledList = styled.ul`
   list-style: none;
 `;
 
-const List = ({ contacts }) => (
+const List = ({ contacts, favoriteContact }) => (
   <StyledList>
     {(contacts || []).map(contact => (
-      <ListItem key={contact.id} contact={contact} />
+      <ListItem
+        key={contact.id}
+        contact={contact}
+        favoriteContact={favoriteContact}
+      />
     ))}
   </StyledList>
 );
