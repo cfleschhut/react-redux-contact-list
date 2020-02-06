@@ -6,3 +6,10 @@ export const favoriteContact = id => {
     id
   };
 };
+
+export const deleteContact = id => {
+  return {
+    type: types.DELETE_CONTACT,
+    id
+  };
+};

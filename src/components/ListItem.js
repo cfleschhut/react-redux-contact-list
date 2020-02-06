@@ -65,7 +65,7 @@ const Actions = styled.div`
   gap: 15px;
 `;
 
-const ListItem = ({ contact, favoriteContact }) => {
+const ListItem = ({ contact, favoriteContact, deleteContact }) => {
   const { id, first_name, last_name, avatar, email, favorited } = contact;
 
   return (
@@ -87,7 +87,7 @@ const ListItem = ({ contact, favoriteContact }) => {
             <Button primary onClick={() => favoriteContact(id)}>
               Favorite
             </Button>
-            <Button>Delete</Button>
+            <Button onClick={() => deleteContact(id)}>Delete</Button>
           </Actions>
         </CardContent>
       </Card>

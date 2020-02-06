@@ -11,6 +11,13 @@ const contacts = (state = initialState, action) => {
 
       return newState;
 
+    case types.DELETE_CONTACT:
+      const filteredContacts = [
+        ...state.filter(contact => contact.id !== action.id)
+      ];
+
+      return filteredContacts;
+
     default:
       return state;
   }
