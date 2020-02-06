@@ -1,17 +1,4 @@
-const initialState = [
-  {
-    name: 'Theodore Roosevelt',
-    starred: true
-  },
-  {
-    name: 'Abraham Lincoln',
-    starred: false
-  },
-  {
-    name: 'George Washington',
-    starred: false
-  }
-];
+import initialState from './data.json';
 
 const contacts = (state = initialState, action) => {
   return state;
