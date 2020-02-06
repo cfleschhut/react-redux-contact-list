@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import List from '../components/List';
-import './App.css';
+
+const Wrapper = styled.div`
+  padding: 20px;
+`;
 
 const App = ({ contacts }) => {
   return (
-    <div>
+    <Wrapper>
       <List contacts={contacts}></List>
-    </div>
+    </Wrapper>
   );
 };
 
