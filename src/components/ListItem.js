@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './Button';
 
 const StyledListItem = styled.li`
   margin: 25px;
@@ -14,8 +15,11 @@ const Card = styled.div`
 `;
 
 const CardContent = styled.div`
+  padding: 0 20px 30px;
+`;
+
+const DetailsWrapper = styled.div`
   display: flex;
-  padding: 0 20px 40px;
 `;
 
 const HeaderImage = styled.div`
@@ -40,13 +44,20 @@ const Details = styled.div`
 
 const Name = styled.h3`
   margin: 0 0 3px;
-  font-size: 22px;
+  font-size: 21px;
 `;
 
 const Email = styled.p`
   margin: 0;
   font-size: 13px;
   color: #444;
+`;
+
+const Actions = styled.div`
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 `;
 
 const ListItem = ({ contact }) => {
@@ -57,11 +68,17 @@ const ListItem = ({ contact }) => {
       <Card>
         <HeaderImage />
         <CardContent>
-          <Avatar src={avatar} />
-          <Details>
-            <Name>{`${first_name} ${last_name}`}</Name>
-            <Email>{email}</Email>
-          </Details>
+          <DetailsWrapper>
+            <Avatar src={avatar} />
+            <Details>
+              <Name>{`${first_name} ${last_name}`}</Name>
+              <Email>{email}</Email>
+            </Details>
+          </DetailsWrapper>
+          <Actions>
+            <Button primary>Favorite</Button>
+            <Button>Delete</Button>
+          </Actions>
         </CardContent>
       </Card>
     </StyledListItem>
