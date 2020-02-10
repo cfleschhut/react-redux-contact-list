@@ -6,7 +6,7 @@ const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(430px, 1fr));
   justify-items: center;
-  margin: 0;
+  margin: 0 0 2em;
   padding: 0;
   list-style: none;
 `;

@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { favoriteContact, deleteContact } from '../actions/contacts';
+import {
+  addContact,
+  deleteContact,
+  favoriteContact
+} from '../actions/contacts';
 import AddContactForm from '../components/AddContactForm';
 import List from '../components/List';
 
@@ -9,16 +13,16 @@ const Wrapper = styled.div`
   padding: 20px;
 `;
 
-const App = ({ contacts, favoriteContact, deleteContact }) => {
+const App = ({ contacts, addContact, deleteContact, favoriteContact }) => {
   return (
     <Wrapper>
-      <AddContactForm onSubmit={values => console.log(values)} />
-
       <List
         contacts={contacts}
         favoriteContact={favoriteContact}
         deleteContact={deleteContact}
       ></List>
+
+      <AddContactForm onSubmit={values => addContact(values)} />
     </Wrapper>
   );
 };
@@ -28,8 +32,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  favoriteContact,
-  deleteContact
+  addContact,
+  deleteContact,
+  favoriteContact
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

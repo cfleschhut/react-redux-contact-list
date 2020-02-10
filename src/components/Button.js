@@ -21,6 +21,11 @@ const StyledButton = styled.button`
     background: ${props =>
       props.primary ? 'hsl(220, 75%, 40%)' : 'hsl(0, 0%, 95%)'};
   }
+
+  &[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 `;
 
 const Button = props => {

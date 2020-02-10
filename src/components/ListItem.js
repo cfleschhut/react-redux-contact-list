@@ -35,6 +35,11 @@ const Avatar = styled.img`
   margin-top: -60px;
   border-radius: 50%;
   border: 3px solid #fff;
+  background: #fff;
+
+  &:not([src]) {
+    border-radius: 0;
+  }
 `;
 
 const Details = styled.div`
