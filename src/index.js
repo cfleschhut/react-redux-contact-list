@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import contacts from './reducers/contacts';
 import App from './containers/App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
-  contacts
+  contacts,
+  form: formReducer
 });
 
 const store = createStore(
